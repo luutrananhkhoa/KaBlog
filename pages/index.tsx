@@ -7,6 +7,7 @@ import {getBlogs} from '../server/Blogs'
 import styles from '../styles/Home.module.css'
 import {BlogPost} from '../types/blog'
 
+
 const Home: NextPage = ({
   blogData,
   tags
@@ -30,17 +31,15 @@ const Home: NextPage = ({
         setFilterWord([...filterWord, tag.innerText])
       }
   }
-
-  useEffect(()=>{
-    console.log(filterWord)
-  },[selectedIdx])
-
   return (
-    <main className="w-screen h-screen overflow-auto flex flex-col items-center bg-[#F4F2EE] font-poppins">
+    <main className="w-screen h-screen overflow-auto flex flex-col items-center bg-[#28272A] font-poppins">
       <title>Home</title>
+      <div className="w-full py-8 px-10 flex justify-center">
+        <img src="/Logo.svg" alt="Logo" />
+      </div>
       <section>
-        <div className="mt-4 text-center">
-          <h1 className="text-[3rem] font-semibold text-[#EE80A0]">
+        <div className="mt-8 text-center text-[#E7DACA]">
+          <h1 className="text-[4rem] font-yeseva text-[#E7DACA]">
             Welcome to KaBlog
           </h1>
           <p>
@@ -49,12 +48,12 @@ const Home: NextPage = ({
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center text-[1.5rem] mt-12">
+      <section className="flex flex-col items-center text-[1.125rem] mt-12">
         <div className="flex gap-3 mb-12">
           {tags.map((tag: string, idx: number) =>{
             return(
                  <button key={idx} 
-                  className={`${selectedIdx.includes(idx)? 'bg-red-400 rounded-xl px-4' : 'bg-sky-600 rounded-xl px-4'}`}
+                  className={`${selectedIdx.includes(idx)? 'bg-[#4D289D] text-white rounded-2xl py-1 px-8' : 'bg-[#06B38A] rounded-2xl py-1 px-8'}`}
                   onClick={(e)=>filterLabel(e.target, idx)}
                  >{tag}</button>
             )
@@ -64,7 +63,7 @@ const Home: NextPage = ({
           return (
             <div
               key={blog.id}
-              className="max-h-[20em] max-w-[28em] overflow-hidden p-4 m-6 bg-[#ccc] rounded-lg hover:bg-slate-500 transaction-all duration-300"
+              className="max-h-[20em] max-w-[28em] overflow-hidden p-6 mb-8 bg-[#F3E7E6] rounded-lg hover:bg-[#A9BAB6] transaction-all duration-300"
             >
               {/* {blog.title} */}
               <a href={blog.url} target="_blank" rel="noreferrer">

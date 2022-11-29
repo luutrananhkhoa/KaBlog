@@ -13,7 +13,7 @@ const BlogPreview:React.FC<BlogPost> = (props) => {
         <div className="flex gap-3">
             {tags.map((tag, idx)=>{
                 return (
-                    <p className="bg-sky-600 p-2 mt-2 font-semibold rounded-xl" key={idx}>{tag}</p>
+                    <p className="bg-[#4D289D] mt-2 text-[#E7DACA] rounded-2xl py-1 px-8 font-semibold" key={idx}>{tag}</p>
                 )
             })}
         </div>
